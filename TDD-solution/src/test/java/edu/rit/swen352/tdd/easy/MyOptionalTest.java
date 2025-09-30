@@ -37,6 +37,14 @@ class MyOptionalTest {
     }
 
     @Test
+    @DisplayName("Assert of() creates optional with given value")
+    public void of_3() {
+        int value = 2;
+        MyOptional<Integer> optional = MyOptional.of(value);
+        assertEquals(value, optional.get());
+    }
+
+    @Test
     @DisplayName("Assert .ofNullable() doesn't return Null")
     public void ofNullable_1() {
         assertNotNull(MyOptional.ofNullable(null));
