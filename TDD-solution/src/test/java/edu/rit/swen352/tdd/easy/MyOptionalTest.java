@@ -41,4 +41,12 @@ class MyOptionalTest {
     public void ofNullable_1() {
         assertNotNull(MyOptional.ofNullable(null));
     }
+
+    @Test
+    @DisplayName("Assert .ofNullable() stores value given")
+    public void ofNullable_2() {
+        int value = 2;
+        MyOptional<Integer> nullable = MyOptional.ofNullable(value);
+        assertEquals(value, nullable.get());
+    }
 }
