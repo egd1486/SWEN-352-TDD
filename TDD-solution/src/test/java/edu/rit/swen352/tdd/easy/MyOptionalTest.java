@@ -35,4 +35,10 @@ class MyOptionalTest {
             MyOptional.of(null);
         } );
     }
+
+    @Test
+    @DisplayName("Assert .ofNullable() doesn't return Null")
+    public void ofNullable_1() {
+        assertNotNull(MyOptional.ofNullable(null));
+    }
 }
