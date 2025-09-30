@@ -34,6 +34,9 @@ public class MyOptional<T> {
     }
 
     static public <E> MyOptional<E> of(E value) {
+        if (value == null) {
+            throw new NullPointerException();
+        }
         return new MyOptional<>(value);
     }
 
