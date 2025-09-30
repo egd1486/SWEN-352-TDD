@@ -16,44 +16,66 @@ class CounterTest {
     @DisplayName("Test constructor: 2 args")
      void constructorTest_1() {
         CuT = new Counter(1, 10);
-        assertEquals(CuT.getLower(), 1, "lowerBounds is not equal");
-        assertEquals(CuT.getUpper(), 10, "upperBounds is not equal");
+        assertEquals(CuT.getLower(), 1, "lowerBounds is not equal to 1");
+        assertEquals(CuT.getUpper(), 10, "upperBounds is not equal to 10");
     }
 
     @Test
     @DisplayName("Test constructor: 1 args")
     void constructorTest_2() {
         CuT = new Counter(1);
-        assertEquals(CuT.getLower(), 1, "lowerBounds is not equal");
-        assertEquals(CuT.getUpper(), Integer.MAX_VALUE, "upperBounds is not equal");
+        assertEquals(CuT.getLower(), 1, "lowerBounds is not equal to 1");
+        assertEquals(CuT.getUpper(), Integer.MAX_VALUE, "upperBounds is not equal to Integer.MAX_VALUE");
     }
 
     @Test
     @DisplayName("Test constructor: 0 args")
     void constructorTest_3() {
         CuT = new Counter();
-        assertEquals(CuT.getLower(), 0, "lowerBounds is not equal");
-        assertEquals(CuT.getUpper(), Integer.MAX_VALUE, "upperBounds is not equal");
+        assertEquals(CuT.getLower(), 0, "lowerBounds is not equal to 0");
+        assertEquals(CuT.getUpper(), Integer.MAX_VALUE, "upperBounds is not equal to Integer.MAX_VALUE");
     }
 
     @Test 
     @DisplayName("Test getting lower bounds")
     void lowerBoundsTest() {
         CuT = new Counter(1);
-        assertEquals(CuT.getLower(), 1, "lowerBounds is not equal");
+        assertEquals(CuT.getLower(), 1, "lowerBounds is not equal to 1");
     }
 
     @Test
     @DisplayName("Test getting upper bounds")
     void upperBoundsTest() {
         CuT = new Counter(1, 10);
-        assertEquals(CuT.getUpper(), 10, "upperBounds is not equal");
+        assertEquals(CuT.getUpper(), 10, "upperBounds is not equal to 10");
     }
 
     @Test 
     @DisplayName("Test getting count")
     void getCountTest() {
         CuT = new Counter(1, 10);
-        assertEquals(CuT.getCount(), 0, "count is not equal");
+        assertEquals(CuT.getCount(), 0, "count is not equal to 0");
     }
+
+    @Test 
+    @DisplayName("Test incrementing count")
+    void incrementTest_1() {
+        CuT = new Counter(1, 10);
+        assertEquals(CuT.getCount(), 0, "count is not equal to 0");
+        CuT.increment();
+        assertEquals(CuT.getCount(), 1, "count is not equal to 1");
+    }
+
+    @Test 
+    @DisplayName("Test incrementing count")
+    void incrementTest_2() {
+        CuT = new Counter(0, 1);
+        assertEquals(CuT.getCount(), 0, "count is not equal to 0");
+        CuT.increment();
+        assertThrows(IllegalStateException.class, () -> {
+            CuT.increment(); //over 2
+        });
+    }
+
+
 }
