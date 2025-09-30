@@ -43,8 +43,7 @@ public class Counter {
     }
 
     public int getLower() {
-        assert false: "Not yet implemented";
-        return -1;
+        return lowerBounds;
     }
 
     
