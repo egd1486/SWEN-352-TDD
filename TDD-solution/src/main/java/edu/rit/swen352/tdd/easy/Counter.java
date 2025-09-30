@@ -67,7 +67,11 @@ public class Counter {
     }
 
     public void decrement() {
-        assert false: "Not yet implemented";
+        if(this.count > this.lowerBounds) {
+            this.count = this.count - 1;
+        } else { //count = this.lowerBounds
+            throw new IllegalStateException("Out of bounds");
+        }
     }
     
 }

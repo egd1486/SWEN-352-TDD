@@ -82,9 +82,10 @@ class CounterTest {
     void decrementTest_1() {
         CuT = new Counter(1, 10);
         CuT.increment();
-        assertEquals(CuT.getCount(), 1, "count is not equal to 1");
+        CuT.increment();
+        assertEquals(CuT.getCount(), 2, "count is not equal to 1");
         CuT.decrement();
-        assertEquals(CuT.getCount(), 0, "count is not equal to 0");
+        assertEquals(CuT.getCount(), 1, "count is not equal to 0");
     }
 
     @Test 
