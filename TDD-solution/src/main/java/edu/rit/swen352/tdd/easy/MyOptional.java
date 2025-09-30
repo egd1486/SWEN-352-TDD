@@ -41,7 +41,7 @@ public class MyOptional<T> {
     }
 
     static public <E> MyOptional<E> ofNullable(E value) {
-        return new MyOptional<E>(null);
+        return new MyOptional<E>(value);
     }
 
     public T get() {
