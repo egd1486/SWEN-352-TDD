@@ -59,6 +59,5 @@ public class MyOptional<T> {
     }
 
     public void ifPresent(Consumer<? super T> consumer) {
-        assert false;
     }
 }
