@@ -28,6 +28,7 @@ public class Counter {
     int upperBounds;
 
     public Counter(int lowerBounds, int upperBounds) {
-        assert false: "Not yet implemented";
+        this.lowerBounds = lowerBounds;
+        this.upperBounds = upperBounds;
     }
 }
