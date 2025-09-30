@@ -67,7 +67,7 @@ class CounterTest {
     }
 
     @Test 
-    @DisplayName("Test incrementing count")
+    @DisplayName("Test incrementing count error")
     void incrementTest_2() {
         CuT = new Counter(0, 1);
         assertEquals(CuT.getCount(), 0, "count is not equal to 0");
@@ -77,5 +77,23 @@ class CounterTest {
         });
     }
 
+    @Test 
+    @DisplayName("Test decrementing count")
+    void decrementTest_1() {
+        CuT = new Counter(1, 10);
+        CuT.increment();
+        assertEquals(CuT.getCount(), 1, "count is not equal to 1");
+        CuT.decrement();
+        assertEquals(CuT.getCount(), 0, "count is not equal to 0");
+    }
+
+    @Test 
+    @DisplayName("Test decrementing count error")
+    void decrementTest_2() {
+        CuT = new Counter(0, 1);
+        assertThrows(IllegalStateException.class, () -> {
+            CuT.decrement(); //under 0
+        });
+    }
 
 }

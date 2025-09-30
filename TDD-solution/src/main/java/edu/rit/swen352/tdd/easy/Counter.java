@@ -65,5 +65,9 @@ public class Counter {
             throw new IllegalStateException("Out of bounds");
         }
     }
+
+    public void decrement() {
+        assert false: "Not yet implemented";
+    }
     
 }
