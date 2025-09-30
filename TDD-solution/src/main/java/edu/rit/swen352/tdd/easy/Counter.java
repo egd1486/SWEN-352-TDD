@@ -55,8 +55,7 @@ public class Counter {
     }
 
     public int getCount() {
-        assert false: "Not yet implemented";
-        return -1;
+        return count;
     }
     
 }
