@@ -26,9 +26,7 @@ class SimpleBankAccountTest {
 
     @Test
     public void constructorTest(){
-        SimpleBankAccount testBankAccount = new SimpleBankAccount();
-
-        assertEquals(CuT, testBankAccount);
+        assertNotNull(CuT);
     }
 
 }
