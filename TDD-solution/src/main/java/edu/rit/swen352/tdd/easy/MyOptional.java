@@ -27,4 +27,9 @@ public class MyOptional<T> {
     static public <E> MyOptional<E> empty() {
         return new MyOptional<E>();
     }
+
+    public T get() {
+        assert false;
+        return null;
+    }
 }
