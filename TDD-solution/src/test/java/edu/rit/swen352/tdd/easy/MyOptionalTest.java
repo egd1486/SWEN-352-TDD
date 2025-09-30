@@ -106,4 +106,22 @@ class MyOptionalTest {
         assertTrue(list.isEmpty());
 
     }
+
+    @Test
+    @DisplayName(".ifPresent() runs consumer if nonempty")
+    public void ifPresent_2() {
+        final List<Number> list = new ArrayList<>();
+        Consumer<Number> consumer = new Consumer<>() {
+            @Override
+            public void accept(Number t) {
+                list.add(t);
+            }
+        };
+
+        Integer value = 12;
+        MyOptional.of(value).ifPresent(consumer);
+
+        assertFalse(list.isEmpty());
+        assertEquals(list.get(0), value);
+    }
 }
