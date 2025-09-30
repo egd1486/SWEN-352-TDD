@@ -59,5 +59,8 @@ public class MyOptional<T> {
     }
 
     public void ifPresent(Consumer<? super T> consumer) {
+        if (this.value != null) {
+            consumer.accept(this.value);
+        }
     }
 }
