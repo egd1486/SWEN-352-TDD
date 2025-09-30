@@ -49,4 +49,11 @@ class CounterTest {
         CuT = new Counter(1, 10);
         assertEquals(CuT.getUpper(), 10, "upperBounds is not equal");
     }
+
+    @Test 
+    @DisplayName("Test getting count")
+    void getCountTest() {
+        CuT = new Counter(1, 10);
+        assertEquals(CuT.getCount(), 0, "count is not equal");
+    }
 }

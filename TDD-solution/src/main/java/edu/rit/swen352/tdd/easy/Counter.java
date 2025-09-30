@@ -26,20 +26,24 @@ package edu.rit.swen352.tdd.easy;
 public class Counter {
     private int lowerBounds;
     private int upperBounds;
+    private int count;
 
     public Counter(int lowerBounds, int upperBounds) {
         this.lowerBounds = lowerBounds;
         this.upperBounds = upperBounds;
+        this.count = 0;
     }
 
     public Counter(int lowerBounds) {
         this.lowerBounds = lowerBounds;
         this.upperBounds = Integer.MAX_VALUE;
+        this.count = 0;
     }
 
     public Counter() {
         this.lowerBounds = 0;
         this.upperBounds = Integer.MAX_VALUE; 
+        this.count = 0;
     }
 
     public int getLower() {
@@ -48,6 +52,11 @@ public class Counter {
 
     public int getUpper() {
         return upperBounds;
+    }
+
+    public int getCount() {
+        assert false: "Not yet implemented";
+        return -1;
     }
     
 }
