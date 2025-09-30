@@ -24,4 +24,8 @@ package edu.rit.swen352.tdd.easy;
  * @param <T> the type of value.
  */
 public class MyOptional<T> {
+    static public <E> MyOptional<E> empty() {
+        assert false;
+        return null;
+    }
 }
