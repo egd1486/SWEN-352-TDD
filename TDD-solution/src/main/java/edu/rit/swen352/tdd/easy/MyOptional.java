@@ -56,7 +56,6 @@ public class MyOptional<T> {
     }
 
     public boolean isPresent() {
-        assert false;
         return false;
     }
 }
