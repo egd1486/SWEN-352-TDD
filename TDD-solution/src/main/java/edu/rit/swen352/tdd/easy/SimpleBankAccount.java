@@ -20,5 +20,8 @@ package edu.rit.swen352.tdd.easy;
  * </ul>
  */
 public class SimpleBankAccount {
+    public SimpleBankAccount(){
+        assert false;
+    }
 
 }
