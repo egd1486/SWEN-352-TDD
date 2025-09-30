@@ -33,6 +33,9 @@ public class Counter {
     }
 
     public Counter(int lowerBounds) {
-        assert false: "Not yet implemented";
+        this.lowerBounds = lowerBounds;
+        this.upperBounds = Integer.MAX_VALUE;
     }
+
+    
 }
