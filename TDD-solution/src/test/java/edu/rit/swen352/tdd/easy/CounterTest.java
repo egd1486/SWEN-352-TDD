@@ -19,4 +19,12 @@ class CounterTest {
         assertEquals(CuT.lowerBounds, 1, "lowerBounds is not equal");
         assertEquals(CuT.upperBounds, 10, "upperBounds is not equal");
     }
+
+    @Test
+    @DisplayName("Test constructor: 1 args")
+    void constructorTest_2() {
+        CuT = new Counter(1);
+        assertEquals(CuT.lowerBounds, 1, "lowerBounds is not equal");
+        assertEquals(CuT.upperBounds, Integer.MAX_VALUE, "upperBounds is not equal");
+    }
 }
