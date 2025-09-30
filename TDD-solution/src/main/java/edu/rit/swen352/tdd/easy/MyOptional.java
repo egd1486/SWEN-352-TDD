@@ -2,8 +2,6 @@ package edu.rit.swen352.tdd.easy;
 
 import java.util.NoSuchElementException;
 
-import javax.lang.model.type.NullType;
-
 /**
  * MyOptional contains a single value or nothing at all.
  *

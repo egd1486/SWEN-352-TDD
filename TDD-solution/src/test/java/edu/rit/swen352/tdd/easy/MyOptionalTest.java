@@ -73,4 +73,10 @@ class MyOptionalTest {
     public void isPresent_1() {
         assertFalse(MyOptional.empty().isPresent());
     }
+
+    @Test
+    @DisplayName("Assert isPresent() returns true when nonempty")
+    public void isPresent_2() {
+        assertTrue(MyOptional.ofNullable(2).isPresent());
+    }
 }
