@@ -6,6 +6,8 @@ import org.mockito.internal.matchers.Null;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.NoSuchElementException;
+
 /**
  * Test suite for the {@link MyOptional} component.
  */
@@ -20,6 +22,14 @@ class MyOptionalTest {
     @DisplayName("Assert .get() returns null on empty optional")
     public void get_1() {
         assertNull(MyOptional.empty().get());
+    }
+
+    @Test
+    @DisplayName(".get() throws NoSuchElement when null")
+    public void get_2() {
+        assertThrows(NoSuchElementException.class, () -> {
+            MyOptional.empty().get();
+        });
     }
 
     @Test
