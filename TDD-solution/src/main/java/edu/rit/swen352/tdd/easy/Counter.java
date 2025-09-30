@@ -59,7 +59,11 @@ public class Counter {
     }
 
     public void increment() {
-        assert false: "Not yet implemented";
+        if(this.count < this.upperBounds) {
+            this.count = this.count + 1;
+        } else { //count = this.upperBounds
+            throw new IllegalStateException("Out of bounds");
+        }
     }
     
 }
