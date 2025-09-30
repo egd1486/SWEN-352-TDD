@@ -2,6 +2,7 @@ package edu.rit.swen352.tdd.easy;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.mockito.internal.matchers.Null;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -25,5 +26,13 @@ class MyOptionalTest {
     @DisplayName("Assert of() returns non-empty optional")
     public void of_1() {
         assertNotNull(MyOptional.of(1).get());
+    }
+
+    @Test
+    @DisplayName("Assert of() throws NullPointerException if null")
+    public void of_2() {
+        assertThrows(NullPointerException.class,() -> {
+            MyOptional.of(null);
+        } );
     }
 }
