@@ -28,6 +28,11 @@ public class MyOptional<T> {
         return new MyOptional<E>();
     }
 
+    static public <E> MyOptional<E> of(E value) {
+        assert false;
+        return null;
+    }
+
     public T get() {
         return null;
     }
