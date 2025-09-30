@@ -46,5 +46,9 @@ public class Counter {
         return lowerBounds;
     }
 
+    public int getUpper() {
+        assert false: "Not yet implemented";
+        return -1;
+    }
     
 }
