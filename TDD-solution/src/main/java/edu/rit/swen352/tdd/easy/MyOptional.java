@@ -1,6 +1,7 @@
 package edu.rit.swen352.tdd.easy;
 
 import java.util.NoSuchElementException;
+import java.util.function.Consumer;
 
 /**
  * MyOptional contains a single value or nothing at all.
@@ -55,5 +56,9 @@ public class MyOptional<T> {
 
     public boolean isPresent() {
         return value != null;
+    }
+
+    public void ifPresent(Consumer<? super T> consumer) {
+        assert false;
     }
 }

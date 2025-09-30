@@ -5,7 +5,10 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.function.Consumer;
 
 /**
  * Test suite for the {@link MyOptional} component.
@@ -77,5 +80,30 @@ class MyOptionalTest {
     @DisplayName("Assert isPresent() returns true when nonempty")
     public void isPresent_2() {
         assertTrue(MyOptional.ofNullable(2).isPresent());
+    }
+
+    @Test
+    @DisplayName(".ifPresent() doesn't run consumer if empty")
+    public void ifPresent_1() {
+
+        /*
+         * Need a way to assure that the consumer
+         * has made a side effect
+         * 
+         * Could just throw an exception, but would rather just do
+         * straight side effects in the spirit of a consumer
+         */
+        final List<Object> list = new ArrayList<>();
+        Consumer<Object> consumer = new Consumer<>() {
+            @Override
+            public void accept(Object t) {
+                list.add(t);
+            }
+        };
+
+        MyOptional.empty().ifPresent(consumer);
+
+        assertTrue(list.isEmpty());
+
     }
 }
