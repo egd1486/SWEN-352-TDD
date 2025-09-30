@@ -41,4 +41,11 @@ public class Counter {
         this.lowerBounds = 0;
         this.upperBounds = Integer.MAX_VALUE; 
     }
+
+    public int getLower() {
+        assert false: "Not yet implemented";
+        return -1;
+    }
+
+    
 }

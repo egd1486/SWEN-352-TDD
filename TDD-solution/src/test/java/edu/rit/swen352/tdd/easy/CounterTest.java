@@ -35,4 +35,11 @@ class CounterTest {
         assertEquals(CuT.lowerBounds, 0, "lowerBounds is not equal");
         assertEquals(CuT.upperBounds, Integer.MAX_VALUE, "upperBounds is not equal");
     }
+
+    @Test 
+    @DisplayName("Test getting lower bounds")
+    void lowerBoundsTest() {
+        CuT = new Counter(1);
+        assertEquals(CuT.getLower(), 1, "lowerBounds is not equal");
+    }
 }
