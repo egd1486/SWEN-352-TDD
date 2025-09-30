@@ -19,9 +19,9 @@ class MyOptionalTest {
     }
 
     @Test
-    @DisplayName("Assert .get() returns null on empty optional")
+    @DisplayName("Assert .get() returns not Null on non null optional")
     public void get_1() {
-        assertNull(MyOptional.empty().get());
+        assertNotNull(MyOptional.of(2).get());
     }
 
     @Test
