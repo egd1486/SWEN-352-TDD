@@ -2,6 +2,8 @@ package edu.rit.swen352.tdd.easy;
 
 import java.util.NoSuchElementException;
 
+import javax.lang.model.type.NullType;
+
 /**
  * MyOptional contains a single value or nothing at all.
  *
@@ -51,5 +53,10 @@ public class MyOptional<T> {
             throw new NoSuchElementException();
         }
         return value;
+    }
+
+    public boolean isPresent() {
+        assert false;
+        return false;
     }
 }

@@ -67,4 +67,10 @@ class MyOptionalTest {
         MyOptional<Integer> nullable = MyOptional.ofNullable(value);
         assertEquals(value, nullable.get());
     }
+
+    @Test
+    @DisplayName("Assert isPresent() returns false when empty")
+    public void isPresent_1() {
+        assertFalse(MyOptional.empty().isPresent());
+    }
 }
