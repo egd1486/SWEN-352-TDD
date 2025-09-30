@@ -29,7 +29,6 @@ public class MyOptional<T> {
     }
 
     public T get() {
-        assert false;
         return null;
     }
 }
