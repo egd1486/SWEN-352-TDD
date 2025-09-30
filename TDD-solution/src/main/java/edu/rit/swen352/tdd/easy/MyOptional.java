@@ -25,7 +25,6 @@ package edu.rit.swen352.tdd.easy;
  */
 public class MyOptional<T> {
     static public <E> MyOptional<E> empty() {
-        assert false;
-        return null;
+        return new MyOptional<E>();
     }
 }
