@@ -24,8 +24,8 @@ package edu.rit.swen352.tdd.easy;
  * </ul>
  */
 public class Counter {
-    int lowerBounds;
-    int upperBounds;
+    private int lowerBounds;
+    private int upperBounds;
 
     public Counter(int lowerBounds, int upperBounds) {
         this.lowerBounds = lowerBounds;
