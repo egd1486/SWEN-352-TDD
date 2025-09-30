@@ -24,4 +24,54 @@ package edu.rit.swen352.tdd.easy;
  * </ul>
  */
 public class Counter {
+    private int lowerBounds;
+    private int upperBounds;
+    private int count;
+
+    public Counter(int lowerBounds, int upperBounds) {
+        this.lowerBounds = lowerBounds;
+        this.upperBounds = upperBounds;
+        this.count = 0;
+    }
+
+    public Counter(int lowerBounds) {
+        this.lowerBounds = lowerBounds;
+        this.upperBounds = Integer.MAX_VALUE;
+        this.count = 0;
+    }
+
+    public Counter() {
+        this.lowerBounds = 0;
+        this.upperBounds = Integer.MAX_VALUE; 
+        this.count = 0;
+    }
+
+    public int getLower() {
+        return lowerBounds;
+    }
+
+    public int getUpper() {
+        return upperBounds;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void increment() {
+        if(this.count < this.upperBounds) {
+            this.count = this.count + 1;
+        } else { //count = this.upperBounds
+            throw new IllegalStateException("Out of bounds");
+        }
+    }
+
+    public void decrement() {
+        if(this.count > this.lowerBounds) {
+            this.count = this.count - 1;
+        } else { //count = this.lowerBounds
+            throw new IllegalStateException("Out of bounds");
+        }
+    }
+    
 }
