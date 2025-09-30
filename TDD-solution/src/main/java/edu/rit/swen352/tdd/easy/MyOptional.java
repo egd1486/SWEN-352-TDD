@@ -24,16 +24,20 @@ package edu.rit.swen352.tdd.easy;
  * @param <T> the type of value.
  */
 public class MyOptional<T> {
+    T value;
+    private MyOptional(T value) {
+        this.value = value;
+    }
+
     static public <E> MyOptional<E> empty() {
-        return new MyOptional<E>();
+        return new MyOptional<E>(null);
     }
 
     static public <E> MyOptional<E> of(E value) {
-        assert false;
-        return null;
+        return new MyOptional<>(value);
     }
 
     public T get() {
-        return null;
+        return value;
     }
 }
