@@ -5,9 +5,18 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
 /**
  * Test suite for the {@link Counter} component.
  */
 class CounterTest {
+    private Counter CuT;
 
+    @Test
+    @DisplayName("Test constructor: 2 args")
+     void constructorTest_1() {
+        CuT = new Counter(1, 10);
+        assertEquals(CuT.lowerBounds, 1, "lowerBounds is not equal");
+        assertEquals(CuT.upperBounds, 10, "upperBounds is not equal");
+    }
 }

@@ -24,4 +24,10 @@ package edu.rit.swen352.tdd.easy;
  * </ul>
  */
 public class Counter {
+    int lowerBounds;
+    int upperBounds;
+
+    public Counter(int lowerBounds, int upperBounds) {
+        assert false: "Not yet implemented";
+    }
 }
