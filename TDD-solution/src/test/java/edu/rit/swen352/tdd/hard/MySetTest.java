@@ -47,4 +47,12 @@ class MySetTest {
         assertEquals(expected, testSet.size());
 
     }
+
+    @Test
+    @DisplayName("Contains returns false when not in set")
+    public void contains_1() {
+        int contains = 1;
+        MySet<Integer> testSet = new MySet<>(contains);
+        assertFalse(testSet.contains(contains));
+    }
 }
