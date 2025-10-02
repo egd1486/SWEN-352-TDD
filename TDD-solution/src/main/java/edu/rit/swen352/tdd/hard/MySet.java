@@ -25,10 +25,12 @@ public class MySet<T> {
 
     private Object[][] buckets;
     private int size;
+    private int capacity;
 
     @SafeVarargs
     public MySet(T... varags) {
         buckets = new Object[16][2];
+        capacity = 16;
 
         for (int i = 0; i < varags.length; i++) {
             buckets[i][0] = varags[i];
@@ -36,7 +38,7 @@ public class MySet<T> {
         }
     }
 
-    public int size(){
+    public int size() {
         return size;
     }
 

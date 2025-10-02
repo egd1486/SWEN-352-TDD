@@ -55,4 +55,12 @@ class MySetTest {
         MySet<Integer> testSet = new MySet<>();
         assertFalse(testSet.contains(contains));
     }
+
+    @Test
+    @DisplayName("Contains returns true when in set")
+    public void contains_2() {
+        int contains = 1;
+        MySet<Integer> testSet = new MySet<>(contains);
+        assertTrue(testSet.contains(contains));
+    }
 }
