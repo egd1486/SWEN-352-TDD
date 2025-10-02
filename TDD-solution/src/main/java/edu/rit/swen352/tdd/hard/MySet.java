@@ -21,6 +21,5 @@ package edu.rit.swen352.tdd.hard;
  */
 public class MySet<T> {
     public MySet() {
-        assert false;
     }
 }
