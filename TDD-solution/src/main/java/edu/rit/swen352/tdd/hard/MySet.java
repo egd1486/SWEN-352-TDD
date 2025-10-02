@@ -25,7 +25,6 @@ public class MySet<T> {
     }
 
     public int size(){
-        assert false;
         return 0;
     }
 }
