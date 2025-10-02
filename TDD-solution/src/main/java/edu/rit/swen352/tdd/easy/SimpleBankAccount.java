@@ -30,6 +30,11 @@ public class SimpleBankAccount {
         return this.balance;
     }
 
+    public boolean isAccountEmpty(){
+        assert false;
+        return false;
+    }
+
     
 
 }

@@ -34,4 +34,9 @@ class SimpleBankAccountTest {
         assertEquals(0, CuT.getBalance());
     }
 
+    @Test
+    public void isAccountEmptyTest(){
+        assertTrue(CuT.isAccountEmpty());
+    }
+
 }
