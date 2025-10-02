@@ -29,4 +29,9 @@ class SimpleBankAccountTest {
         assertNotNull(CuT);
     }
 
+    @Test
+    public void getBalanceTest(){
+        assertEquals(0, CuT.getBalance());
+    }
+
 }
