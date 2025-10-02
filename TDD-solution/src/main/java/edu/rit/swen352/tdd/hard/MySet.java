@@ -1,7 +1,5 @@
 package edu.rit.swen352.tdd.hard;
 
-import java.util.Set;
-
 /**
  * MySet is a flexible-sized, unordered collection of elements.
  * The {@link Object#equals(Object)} method is used to determine if two values are equal.
@@ -43,6 +41,12 @@ public class MySet<T> {
     }
 
     public boolean contains(T value) {
+        for(int i = 0; i < size; i++) {
+            if (buckets[i][0] == value ||
+                buckets[i][1] == value) {
+                    return true;
+                }
+        }
         return false;
     }
 }
