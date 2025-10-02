@@ -26,8 +26,8 @@ public class SimpleBankAccount {
         this.balance = 0;
     }
 
-    public Object getBalance(){
-        return null;
+    public float getBalance(){
+        return this.balance;
     }
 
     
