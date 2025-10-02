@@ -49,4 +49,9 @@ public class MySet<T> {
         }
         return false;
     }
+
+    public boolean add(T value) {
+        assert false;
+        return false;
+    }
 }

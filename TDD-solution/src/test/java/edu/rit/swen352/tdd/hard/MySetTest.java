@@ -63,4 +63,14 @@ class MySetTest {
         MySet<Integer> testSet = new MySet<>(contains);
         assertTrue(testSet.contains(contains));
     }
+
+    @Test
+    @DisplayName("Add does not add already added elements")
+    public void add_1() {
+        int contains = 1;
+        int expectedSize = 1;
+        MySet<Integer> testSet = new MySet<>(contains);
+        assertFalse(testSet.add(contains));
+        assertEquals(expectedSize, testSet.size());
+    }
 }
