@@ -1,5 +1,8 @@
 package edu.rit.swen352.tdd.easy;
 
+import java.util.NoSuchElementException;
+import java.util.function.Consumer;
+
 /**
  * MyOptional contains a single value or nothing at all.
  *
@@ -24,4 +27,40 @@ package edu.rit.swen352.tdd.easy;
  * @param <T> the type of value.
  */
 public class MyOptional<T> {
+    T value;
+    private MyOptional(T value) {
+        this.value = value;
+    }
+
+    static public <E> MyOptional<E> empty() {
+        return new MyOptional<E>(null);
+    }
+
+    static public <E> MyOptional<E> of(E value) {
+        if (value == null) {
+            throw new NullPointerException();
+        }
+        return new MyOptional<>(value);
+    }
+
+    static public <E> MyOptional<E> ofNullable(E value) {
+        return new MyOptional<E>(value);
+    }
+
+    public T get() {
+        if (value == null) {
+            throw new NoSuchElementException();
+        }
+        return value;
+    }
+
+    public boolean isPresent() {
+        return value != null;
+    }
+
+    public void ifPresent(Consumer<? super T> consumer) {
+        if (this.value != null) {
+            consumer.accept(this.value);
+        }
+    }
 }
