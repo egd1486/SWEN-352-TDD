@@ -51,7 +51,6 @@ public class MySet<T> {
     }
 
     public boolean add(T value) {
-        assert false;
         return false;
     }
 }
