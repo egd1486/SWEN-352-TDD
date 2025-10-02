@@ -38,4 +38,13 @@ class MySetTest {
         int expected = 0;
         assertEquals(expected, new MySet<Integer>().size());
     }
+
+    @Test
+    @DisplayName("Size returns number of elements in set")
+    public void size_2() {
+        int expected = 4;
+        MySet<Integer> testSet = new MySet<>(1,2,3,4);
+        assertEquals(expected, testSet.size());
+
+    }
 }
