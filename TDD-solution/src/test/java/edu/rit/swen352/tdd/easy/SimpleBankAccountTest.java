@@ -5,9 +5,51 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+
 /**
  * Test suite for the {@link SimpleBankAccount} component.
  */
 class SimpleBankAccountTest {
+    private SimpleBankAccount CuT;
+
+    @BeforeEach
+    public void setUp(){
+        CuT = new SimpleBankAccount();
+    }
+
+    @AfterEach
+    public void tearDown(){
+        CuT = null;
+    }
+
+    @Test
+    public void constructorTest(){
+        assertNotNull(CuT);
+    }
+
+    @Test
+    public void getBalanceTest(){
+        assertEquals(0, CuT.getBalance());
+    }
+
+    @Test
+    public void isAccountEmptyTest(){
+        assertTrue(CuT.isAccountEmpty());
+    }
+
+    @Test
+    public void depositTest(){
+        CuT.deposit(50);
+        assertEquals(50, CuT.getBalance());
+    }
+
+    @Test
+    public void withdrawTest(){
+        CuT.deposit(50);
+        CuT.withdraw(20);
+        assertEquals(30, CuT.getBalance());
+    }
 
 }

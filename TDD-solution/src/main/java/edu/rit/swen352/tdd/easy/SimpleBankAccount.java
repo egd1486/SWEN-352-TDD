@@ -20,5 +20,26 @@ package edu.rit.swen352.tdd.easy;
  * </ul>
  */
 public class SimpleBankAccount {
+    private float balance;
+
+    public SimpleBankAccount(){
+        this.balance = 0;
+    }
+
+    public float getBalance(){
+        return this.balance;
+    }
+
+    public boolean isAccountEmpty(){
+        return this.balance == 0;
+    }
+
+    public void deposit(float amount){
+        this.balance += amount;
+    }
+
+    public void withdraw(float amount){
+        this.balance -= amount;
+    }
 
 }
