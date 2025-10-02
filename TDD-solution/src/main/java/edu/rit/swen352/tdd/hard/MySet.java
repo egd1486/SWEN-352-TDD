@@ -51,6 +51,11 @@ public class MySet<T> {
     }
 
     public boolean add(T value) {
-        return false;
+        if (this.contains(value)) {
+            return false;
+        }
+        buckets[size][0] = value;
+        size++;
+        return true;
     }
 }
