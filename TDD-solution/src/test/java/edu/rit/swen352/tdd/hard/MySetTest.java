@@ -52,7 +52,7 @@ class MySetTest {
     @DisplayName("Contains returns false when not in set")
     public void contains_1() {
         int contains = 1;
-        MySet<Integer> testSet = new MySet<>(contains);
+        MySet<Integer> testSet = new MySet<>();
         assertFalse(testSet.contains(contains));
     }
 }
