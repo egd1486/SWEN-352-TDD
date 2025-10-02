@@ -73,4 +73,15 @@ class MySetTest {
         assertFalse(testSet.add(contains));
         assertEquals(expectedSize, testSet.size());
     }
+
+    @Test
+    @DisplayName("Adding new element increases size, stays in set, and returns true")
+    public void add_2() {
+        int contains = 1;
+        int addedValue = 2;
+        int expectedSize  = 2;
+        MySet<Integer> testSet = new MySet<>(contains);
+        assertTrue(testSet.add(addedValue));
+        assertEquals(expectedSize, testSet.size());
+    }
 }
