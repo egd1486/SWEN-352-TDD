@@ -23,4 +23,9 @@ public class MySet<T> {
     @SafeVarargs
     public MySet(T... varags) {
     }
+
+    public int size(){
+        assert false;
+        return 0;
+    }
 }

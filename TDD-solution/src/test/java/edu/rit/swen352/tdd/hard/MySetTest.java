@@ -31,4 +31,11 @@ class MySetTest {
                          new int[]{0,-1,2,3},
                          new int[]{4,1,7,9,0});
     }
+
+    @Test
+    @DisplayName("Empty set returns size 0")
+    public void size_1() {
+        int expected = 0;
+        assertEquals(expected, new MySet<Integer>().size());
+    }
 }
