@@ -31,8 +31,7 @@ public class SimpleBankAccount {
     }
 
     public boolean isAccountEmpty(){
-        assert false;
-        return false;
+        return this.balance == 0;
     }
 
     
