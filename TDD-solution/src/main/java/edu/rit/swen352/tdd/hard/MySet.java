@@ -41,7 +41,6 @@ public class MySet<T> {
     }
 
     public boolean contains(T value) {
-        assert false;
         return false;
     }
 }
