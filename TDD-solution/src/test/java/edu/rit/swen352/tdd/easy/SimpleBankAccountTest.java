@@ -45,4 +45,11 @@ class SimpleBankAccountTest {
         assertEquals(50, CuT.getBalance());
     }
 
+    @Test
+    public void withdrawTest(){
+        CuT.deposit(50);
+        CuT.withdraw(20);
+        assertEquals(30, CuT.getBalance());
+    }
+
 }
