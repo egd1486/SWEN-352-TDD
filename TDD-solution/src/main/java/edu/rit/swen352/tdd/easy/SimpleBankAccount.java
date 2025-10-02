@@ -34,6 +34,10 @@ public class SimpleBankAccount {
         return this.balance == 0;
     }
 
+    public void deposit(float amount){
+        this.balance += 0;
+    }
+
     
 
 }
