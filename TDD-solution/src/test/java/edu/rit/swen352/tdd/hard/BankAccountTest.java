@@ -14,7 +14,7 @@ class BankAccountTest {
 
     @Test
     public void moneyConstructorTest() {
-        assertNotNull(RuT = new Money());
+        assertNotNull(RuT = new Money(0, 0));
     }
 
     @Test
