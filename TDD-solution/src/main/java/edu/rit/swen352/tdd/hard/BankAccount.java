@@ -30,7 +30,7 @@ record Money(int dollars, int cents) {
     }
 
     public boolean isZero() {
-        return false;
+        return dollars == 0 && cents == 0;
     }
 }
 
