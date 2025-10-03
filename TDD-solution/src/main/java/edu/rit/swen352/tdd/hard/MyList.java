@@ -19,7 +19,7 @@ package edu.rit.swen352.tdd.hard;
  * @param <T> the type of elements in the list.
  */
 public class MyList<T> {
-    T[] lst;
+    private T[] lst;
 
     public MyList(T... lst) { //varargs = ... (0 or more)
         this.lst = lst;
@@ -35,5 +35,7 @@ public class MyList<T> {
     public int size() {
        return lst.length;
     }
+
+    
 }
 
