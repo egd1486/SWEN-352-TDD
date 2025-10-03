@@ -5,7 +5,11 @@ package edu.rit.swen352.tdd.hard;
  * values for dollars and cents.
  */
 record Money(int dollars, int cents) {
-    
+    public Money {
+        if(cents < 0){
+            throw new IllegalArgumentException("Cents cannot be negative");
+        }
+    }
 }
 
 /**
