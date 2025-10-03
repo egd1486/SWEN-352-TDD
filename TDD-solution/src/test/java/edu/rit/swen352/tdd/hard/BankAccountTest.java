@@ -9,5 +9,10 @@ import static org.junit.jupiter.api.Assertions.*;
  * Test suite for the {@link BankAccount} component.
  */
 class BankAccountTest {
+    private Money RuT;
 
+    @Test
+    public void moneyConstructorTest() {
+        assertNotNull(RuT = new Money());
+    }
 }
