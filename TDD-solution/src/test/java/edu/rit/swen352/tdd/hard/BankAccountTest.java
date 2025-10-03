@@ -9,5 +9,160 @@ import static org.junit.jupiter.api.Assertions.*;
  * Test suite for the {@link BankAccount} component.
  */
 class BankAccountTest {
+    private Money RuT;
+    private BankAccount CuT;
 
+    @Test
+    @DisplayName("Money record can be constructed")
+    public void moneyConstructorTest() {
+        assertNotNull(RuT = new Money(0, 0));
+    }
+
+    @Test
+    @DisplayName("BankAccount can be constructed")
+    public void bankAccountConstructorTest() {
+        assertNotNull(CuT = new BankAccount());
+    }
+
+    @Test
+    @DisplayName("Cents cannot be negative")
+    public void centsCannotBeNegativeTest() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            RuT = new Money(0, -1);
+        });
+        String expectedMessage = "Cents cannot be negative";
+        String actualMessage = exception.getMessage();
+        assertTrue(actualMessage.contains(expectedMessage));
+    }
+
+    @Test
+    @DisplayName("Cents cannot be greater than 99")
+    public void centsCannotBeGreaterThan99Test() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            RuT = new Money(0, 101);
+        });
+        String expectedMessage = "Cents cannot be greater than 99";
+        String actualMessage = exception.getMessage();
+        assertTrue(actualMessage.contains(expectedMessage));
+    }
+
+    @Test
+    @DisplayName("Dollars cannot be negative")
+    public void dollarsCannotBeNegativeTest() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            RuT = new Money(-1, 0);
+        });
+        String expectedMessage = "Dollars cannot be negative";
+        String actualMessage = exception.getMessage();
+        assertTrue(actualMessage.contains(expectedMessage));
+    }
+
+    @Test
+    @DisplayName("Adding money")
+    public void addMoneyTest(){
+        RuT = new Money(0, 0);
+        Money testMoney = new Money(10, 50);
+
+        Money FinalMoney = RuT.add(testMoney);
+
+        assertEquals(10, FinalMoney.dollars());
+        assertEquals(50, FinalMoney.cents());
+    }
+
+    @Test
+    @DisplayName("Adding money that converts from cents to dollars")
+    public void addMoneyComplexTest() {
+        RuT = new Money(2, 75);
+        Money testMoney = new Money(0, 53);
+
+        Money FinalMoney = RuT.add(testMoney);
+
+        assertEquals(3, FinalMoney.dollars());
+        assertEquals(28, FinalMoney.cents());
+    }
+
+    @Test
+    @DisplayName("Tests when there is no money")
+    public void moneyAtZeroTest() {
+        RuT = new Money(0, 0);
+        boolean result = RuT.isZero();
+
+        assertTrue(result);
+    }
+
+    @Test
+    @DisplayName("Tests that subtracting money returns the correct amount")
+    public void subtractMoneyTest() {
+        RuT = new Money(5, 15);
+        Money testMoney = new Money(3, 35);
+
+        Money finalMoney = RuT.subtract(testMoney);
+
+        assertEquals(1, finalMoney.dollars());
+        assertEquals(80, finalMoney.cents());
+    }
+
+    @Test
+    @DisplayName("Tests to assure an error is thrown when attempting to subtract more value than the original amount")
+    public void subtractTooMuchMoneyTest() {
+        RuT = new Money(0, 0);
+        Money testMoney = new Money(3, 35);
+
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            RuT.subtract(testMoney);
+        });
+
+        String expectedMessage = "Cannot subtract more money than in original amount";
+        String actualMessage = exception.getMessage();
+        assertTrue(actualMessage.contains(expectedMessage));
+
+    }
+
+    @Test
+    @DisplayName("Test the get balance return value")
+    public void getBalanceTest() {
+        CuT = new BankAccount();
+        assertEquals("Money[dollars=0, cents=0]", CuT.getBalance());
+    }
+
+    @Test
+    @DisplayName("Tests if the account is empty")
+    public void isAccountEmptyTest() {
+        CuT = new BankAccount();
+        assertTrue(CuT.isAccountEmpty());
+    }
+
+    @Test
+    @DisplayName("Tests to see if the correct amount is deposited into the account")
+    public void depsoitTest() {
+        CuT = new BankAccount();
+        Money amount = new Money(10, 50);
+        CuT.deposit(amount);
+        assertEquals("Money[dollars=10, cents=50]", CuT.getBalance());
+    }
+
+    @Test
+    @DisplayName("Tests to see if the correct amount is withdrawn from the account")
+    public void withdrawTest() {
+        CuT = new BankAccount();
+        Money amount = new Money(10, 50);
+        CuT.deposit(amount);
+        Money withdrawAmount = new Money(6, 70);
+        CuT.withdraw(withdrawAmount);
+        assertEquals("Money[dollars=3, cents=80]", CuT.getBalance());
+    }
+
+    @Test
+    @DisplayName("Tests to make sure the correct error message is thrown the account would become negative")
+    public void withdrawTooMuchTest() {
+        CuT = new BankAccount();
+        Money amount = new Money(10, 50);
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            CuT.withdraw(amount);
+        });
+       
+        String expectedMessage = "Cannot subtract more money than in original amount";
+        String actualMessage = exception.getMessage();
+        assertTrue(actualMessage.contains(expectedMessage));
+    }
 }
