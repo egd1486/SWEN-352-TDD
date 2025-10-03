@@ -49,6 +49,19 @@ class MySetTest {
     }
 
     @Test
+    @DisplayName("Adding many items returns expected size")
+    public void size_3() {
+        MySet<Integer> testSet = new MySet<>();
+
+        int expectedSize = 30;
+        for (int i = 0; i < expectedSize; i++) {
+            testSet.add(i);
+        }
+
+        assertEquals(expectedSize, testSet.size());
+    }
+
+    @Test
     @DisplayName("Contains returns false when not in set")
     public void contains_1() {
         int contains = 1;
