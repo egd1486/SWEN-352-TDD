@@ -25,5 +25,9 @@ public class MyList<T> {
         this.lst = lst;
     }
 
+    public boolean isEmpty() {
+        assert false: "Not yet implemented";
+        return false;
+    }
 }
 
