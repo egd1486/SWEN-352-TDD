@@ -140,4 +140,29 @@ class BankAccountTest {
         CuT.deposit(amount);
         assertEquals("Money[dollars=10, cents=50]", CuT.getBalance());
     }
+
+    @Test
+    @DisplayName("Tests to see if the correct amount is withdrawn from the account")
+    public void withdrawTest() {
+        CuT = new BankAccount();
+        Money amount = new Money(10, 50);
+        CuT.deposit(amount);
+        Money withdrawAmount = new Money(6, 70);
+        CuT.withdraw(withdrawAmount);
+        assertEquals("Money[dollars=3, cents=80]", CuT.getBalance());
+    }
+
+    @Test
+    @DisplayName("Tests to make sure the correct error message is thrown the account would become negative")
+    public void withdrawTooMuchTest() {
+        CuT = new BankAccount();
+        Money amount = new Money(10, 50);
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            CuT.withdraw(amount);
+        });
+       
+        String expectedMessage = "Cannot subtract more money than in original amount";
+        String actualMessage = exception.getMessage();
+        assertTrue(actualMessage.contains(expectedMessage));
+    }
 }
