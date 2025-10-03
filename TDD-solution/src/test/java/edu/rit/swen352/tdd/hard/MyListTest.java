@@ -37,4 +37,15 @@ class MyListTest {
         CuT = new MyList<Object>(); 
         assertEquals(CuT.size(), 0, "List size is incorrect");
     }
+
+    @Test 
+    @DisplayName("Test getting an element in the list")
+    void getTest() {
+        CuT = new MyList<Object>(1, "2", 3.4); 
+        assertEquals(CuT.get(1), "2", "List element is incorrect");
+
+        assertThrows(java.util.NoSuchElementException.class, () -> {
+            CuT.get(5);
+        });
+    }
 }

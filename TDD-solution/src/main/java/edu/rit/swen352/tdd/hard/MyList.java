@@ -36,6 +36,9 @@ public class MyList<T> {
        return lst.length;
     }
 
-    
+    public T get(int idx) {
+        assert false: "Not yet implemented";
+        return null;
+    }
 }
 
