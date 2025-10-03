@@ -73,6 +73,6 @@ public class BankAccount {
     }
 
     public boolean isAccountEmpty() {
-        return false;
+        return balance.dollars() == 0 && balance.cents() == 0;
     }
 }
