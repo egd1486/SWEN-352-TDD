@@ -67,4 +67,8 @@ public class BankAccount {
     public BankAccount() {
         balance = new Money(0, 0);
     }
+
+    public String getBalance() {
+        return null;
+    }
 }

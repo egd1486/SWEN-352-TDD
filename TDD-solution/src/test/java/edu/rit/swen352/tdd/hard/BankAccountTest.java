@@ -117,4 +117,10 @@ class BankAccountTest {
         assertTrue(actualMessage.contains(expectedMessage));
 
     }
+
+    @Test
+    @DisplayName("Test the get balance return value")
+    public void getBalanceTest() {
+        assertEquals("Money[dollar]0[cent]0", CuT.getBalance());
+    }
 }
