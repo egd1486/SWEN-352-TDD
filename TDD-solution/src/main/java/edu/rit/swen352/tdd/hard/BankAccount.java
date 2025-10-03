@@ -75,4 +75,8 @@ public class BankAccount {
     public boolean isAccountEmpty() {
         return balance.dollars() == 0 && balance.cents() == 0;
     }
+
+    public Money deposit(Money amount) {
+        return null;
+    }
 }

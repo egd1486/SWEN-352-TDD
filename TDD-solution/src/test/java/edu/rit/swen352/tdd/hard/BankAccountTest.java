@@ -131,4 +131,13 @@ class BankAccountTest {
         CuT = new BankAccount();
         assertTrue(CuT.isAccountEmpty());
     }
+
+    @Test
+    @DisplayName("Tests to see if the correct amount is deposited into the account")
+    public void depsoitTest() {
+        CuT = new BankAccount();
+        Money amount = new Money(10, 50);
+        CuT.deposit(amount);
+        assertEquals("Money[dollars=10, cents=50]", CuT.getBalance());
+    }
 }
