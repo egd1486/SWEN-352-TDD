@@ -19,4 +19,10 @@ package edu.rit.swen352.tdd.hard;
  * @param <T> the type of elements in the list.
  */
 public class MyList<T> {
+    T[] lst;
+
+    public MyList(T... lst) { //varargs = ... (0 or more)
+        assert false: "Not yet implemented";
+    }
 }
+

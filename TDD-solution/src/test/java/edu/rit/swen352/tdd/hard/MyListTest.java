@@ -9,5 +9,12 @@ import static org.junit.jupiter.api.Assertions.*;
  * Test suite for the {@link MyList} component.
  */
 class MyListTest {
-
+    private MyList<Object> CuT; 
+    
+    @Test 
+    @DisplayName("Test constructor") 
+    void constructorTest() { 
+        CuT = new MyList<Object>(1, "2", 3.4); 
+        assertNotNull(CuT, "List not created"); 
+    }
 }
