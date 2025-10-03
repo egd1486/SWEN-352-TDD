@@ -81,6 +81,6 @@ public class BankAccount {
     }
 
     public void withdraw(Money amount) {
-        
+        balance = balance.subtract(amount);
     }
 }
