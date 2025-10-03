@@ -39,7 +39,7 @@ class BankAccountTest {
     @DisplayName("Cents cannot be greater than 99")
     public void centsCannotBeGreaterThan99Test() {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            RuT = new Money(0, 100);
+            RuT = new Money(0, 101);
         });
         String expectedMessage = "Cents cannot be greater than 99";
         String actualMessage = exception.getMessage();
