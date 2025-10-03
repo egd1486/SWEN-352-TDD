@@ -10,9 +10,15 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class BankAccountTest {
     private Money RuT;
+    private BankAccount CuT;
 
     @Test
     public void moneyConstructorTest() {
         assertNotNull(RuT = new Money());
+    }
+
+    @Test
+    public void bankAccountConstructorTest(){
+        assertNotNull(CuT = new BankAccount());
     }
 }

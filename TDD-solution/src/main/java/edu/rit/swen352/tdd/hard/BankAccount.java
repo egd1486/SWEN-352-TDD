@@ -26,5 +26,7 @@ record Money() {}
  * </ul>
  */
 public class BankAccount {
-
+    public BankAccount() {
+        assert false;
+    }
 }
