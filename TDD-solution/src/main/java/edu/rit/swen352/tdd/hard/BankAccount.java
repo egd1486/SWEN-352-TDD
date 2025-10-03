@@ -17,7 +17,7 @@ record Money(int dollars, int cents) {
         }
     }
 
-    public Money add(Money Other){
+    public Money add(Money Other) {
         int finalDollars = dollars + Other.dollars;
         int finalCents = 0;
         if(cents + Other.cents >= 100){
@@ -27,6 +27,10 @@ record Money(int dollars, int cents) {
             finalCents = cents + Other.cents;
         }
         return new Money(finalDollars, finalCents);
+    }
+
+    public boolean isZero() {
+        return false;
     }
 }
 
