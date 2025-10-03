@@ -33,8 +33,7 @@ public class MyList<T> {
     }
 
     public int size() {
-        assert false: "Not yet implemented";
-        return -1;
+       return lst.length;
     }
 }
 
