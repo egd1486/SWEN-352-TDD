@@ -121,6 +121,7 @@ class BankAccountTest {
     @Test
     @DisplayName("Test the get balance return value")
     public void getBalanceTest() {
-        assertEquals("Money[dollar]0[cent]0", CuT.getBalance());
+        CuT = new BankAccount();
+        assertEquals("Money[dollars=0, cents=0]", CuT.getBalance());
     }
 }

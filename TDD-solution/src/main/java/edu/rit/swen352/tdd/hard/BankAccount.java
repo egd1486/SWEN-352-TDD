@@ -69,6 +69,6 @@ public class BankAccount {
     }
 
     public String getBalance() {
-        return null;
+        return balance.toString();
     }
 }
