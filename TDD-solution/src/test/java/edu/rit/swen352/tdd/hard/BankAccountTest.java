@@ -34,4 +34,15 @@ class BankAccountTest {
         String actualMessage = exception.getMessage();
         assertTrue(actualMessage.contains(expectedMessage));
     }
+
+    @Test
+    @DisplayName("Cents cannot be greater than 99")
+    public void centsCannotBeGreaterThan99Test() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            RuT = new Money(0, 100);
+        });
+        String expectedMessage = "Cents cannot be greater than 99";
+        String actualMessage = exception.getMessage();
+        assertTrue(actualMessage.contains(expectedMessage));
+    }
 }
