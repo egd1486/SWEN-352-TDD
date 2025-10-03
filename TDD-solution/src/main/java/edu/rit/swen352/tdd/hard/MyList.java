@@ -22,7 +22,8 @@ public class MyList<T> {
     T[] lst;
 
     public MyList(T... lst) { //varargs = ... (0 or more)
-        assert false: "Not yet implemented";
+        this.lst = lst;
     }
+
 }
 
