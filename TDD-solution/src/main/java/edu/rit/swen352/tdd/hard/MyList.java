@@ -69,7 +69,7 @@ public class MyList<T> {
     }
 
     public void forEach(Consumer consumer) {
-        assert false : "Not yet implemented";
+        lst.stream().forEach(consumer);
     }
 }
 
