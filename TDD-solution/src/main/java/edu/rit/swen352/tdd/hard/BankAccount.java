@@ -12,6 +12,9 @@ record Money(int dollars, int cents) {
         if(cents >= 100) {
             throw new IllegalArgumentException("Cents cannot be greater than 99");
         }
+        if(dollars < 0){
+            throw new IllegalArgumentException("Dollars cannot be negative");
+        }
     }
 }
 
