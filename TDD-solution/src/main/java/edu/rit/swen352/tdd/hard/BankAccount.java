@@ -17,24 +17,16 @@ record Money(int dollars, int cents) {
         }
     }
 
-    public Money add(Money Other) {
-        int finalDollars = dollars + Other.dollars;
-        int finalCents = 0;
-        if(cents + Other.cents >= 100){
-            finalDollars++;
-            finalCents = (cents + Other.cents) - 100;
-        } else {
-            finalCents = cents + Other.cents;
-        }
+    public Money add(Money other) {
+        int totalCents = cents + other.cents;
+        int carry = totalCents / 100;
+        int finalCents = totalCents % 100;
+        int finalDollars = dollars + other.dollars + carry;
         return new Money(finalDollars, finalCents);
     }
 
     public boolean isZero() {
         return dollars == 0 && cents == 0;
-    }
-
-    public Money subtract(Money Other) {
-        return new Money(0, 0);
     }
 }
 
