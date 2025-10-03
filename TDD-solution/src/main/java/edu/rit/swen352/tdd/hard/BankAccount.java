@@ -33,9 +33,9 @@ record Money(int dollars, int cents) {
         int firstValue = dollars*100 + cents;
         int secondValue = other.dollars*100 + other.cents;
         int finalValue = firstValue - secondValue;
-        if(finalValue < 0){
-            throw new IllegalArgumentException("Cannot subtract more money than in original amount");
-        }
+        // if(finalValue < 0){
+        //     throw new IllegalArgumentException("Cannot subtract more money than in original amount");
+        // }
         int finalDollars = finalValue / 100;
         int finalCents = finalValue % 100;
         return new Money(finalDollars, finalCents);

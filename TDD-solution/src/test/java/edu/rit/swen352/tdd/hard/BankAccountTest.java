@@ -92,7 +92,7 @@ class BankAccountTest {
 
     @Test
     @DisplayName("Tests that subtracting money returns the correct amount")
-    public void subtractMoneyTest(){
+    public void subtractMoneyTest() {
         RuT = new Money(5, 15);
         Money testMoney = new Money(3, 35);
 
@@ -100,5 +100,21 @@ class BankAccountTest {
 
         assertEquals(1, finalMoney.dollars());
         assertEquals(80, finalMoney.cents());
+    }
+
+    @Test
+    @DisplayName("Tests to assure an error is thrown when attempting to subtract more value than the original amount")
+    public void subtractTooMuchMoneyTest() {
+        RuT = new Money(0, 0);
+        Money testMoney = new Money(3, 35);
+
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            RuT.subtract(testMoney);
+        });
+
+        String expectedMessage = "Cannot subtract more money than in original amount";
+        String actualMessage = exception.getMessage();
+        assertTrue(actualMessage.contains(expectedMessage));
+
     }
 }
