@@ -56,4 +56,28 @@ class BankAccountTest {
         String actualMessage = exception.getMessage();
         assertTrue(actualMessage.contains(expectedMessage));
     }
+
+    @Test
+    @DisplayName("Adding money")
+    public void addMoneyTest(){
+        RuT = new Money(0, 0);
+        Money testMoney = new Money(10, 50);
+
+        Money FinalMoney = RuT.add(testMoney);
+
+        assertEquals(10, FinalMoney.dollars());
+        assertEquals(50, FinalMoney.cents());
+    }
+
+    @Test
+    @DisplayName("Adding money that converts from cents to dollars")
+    public void addMoneyComplexTest(){
+        RuT = new Money(2, 75);
+        Money testMoney = new Money(0, 53);
+
+        Money FinalMoney = RuT.add(testMoney);
+
+        assertEquals(3, FinalMoney.dollars());
+        assertEquals(28, FinalMoney.cents());
+    }
 }

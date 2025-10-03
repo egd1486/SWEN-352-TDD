@@ -16,6 +16,12 @@ record Money(int dollars, int cents) {
             throw new IllegalArgumentException("Dollars cannot be negative");
         }
     }
+
+    public Money add(Money Other){
+        int finalDollars = 0;
+        int finalCents = 0;
+        return new Money(finalDollars, finalCents);
+    }
 }
 
 /**
