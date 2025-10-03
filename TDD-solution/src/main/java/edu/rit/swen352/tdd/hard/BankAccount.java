@@ -26,7 +26,9 @@ record Money() {}
  * </ul>
  */
 public class BankAccount {
+    private Money balance;
+
     public BankAccount() {
-        assert false;
+        balance = new Money();
     }
 }
