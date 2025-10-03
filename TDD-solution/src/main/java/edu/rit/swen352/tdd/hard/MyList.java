@@ -57,5 +57,9 @@ public class MyList<T> {
             lst.add(ele);
         }
     }
+
+    public void remove(int idx) {
+        assert false : "Not yet implemented";
+    }
 }
 

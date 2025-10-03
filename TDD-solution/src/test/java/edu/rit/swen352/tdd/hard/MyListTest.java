@@ -63,4 +63,16 @@ class MyListTest {
             CuT.add(null);
         });
     }
+
+    @Test 
+    @DisplayName("Test removing an element at index") 
+    void removeTest() {
+        CuT = new MyList<Object>(1, "2", 3.4); 
+        CuT.remove(1);
+        assertEquals(CuT.size(), 2, "Element not removed");
+
+        assertThrows(java.util.NoSuchElementException.class, () -> {
+            CuT.remove(5);
+        });
+    }
 }
