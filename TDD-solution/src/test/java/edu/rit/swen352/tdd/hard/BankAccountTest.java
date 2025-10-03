@@ -124,4 +124,11 @@ class BankAccountTest {
         CuT = new BankAccount();
         assertEquals("Money[dollars=0, cents=0]", CuT.getBalance());
     }
+
+    @Test
+    @DisplayName("Tests if the account is empty")
+    public void isAccountEmptyTest() {
+        CuT = new BankAccount();
+        assertTrue(CuT.isAccountEmpty());
+    }
 }

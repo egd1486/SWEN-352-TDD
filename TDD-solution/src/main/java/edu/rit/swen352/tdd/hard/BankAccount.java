@@ -71,4 +71,8 @@ public class BankAccount {
     public String getBalance() {
         return balance.toString();
     }
+
+    public boolean isAccountEmpty() {
+        return false;
+    }
 }
