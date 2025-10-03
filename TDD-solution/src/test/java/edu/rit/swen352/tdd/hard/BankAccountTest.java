@@ -45,4 +45,15 @@ class BankAccountTest {
         String actualMessage = exception.getMessage();
         assertTrue(actualMessage.contains(expectedMessage));
     }
+
+    @Test
+    @DisplayName("Dollars cannot be negative")
+    public void dollarsCannotBeNegativeTest() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            RuT = new Money(-1, 0);
+        });
+        String expectedMessage = "Dollars cannot be negative";
+        String actualMessage = exception.getMessage();
+        assertTrue(actualMessage.contains(expectedMessage));
+    }
 }
