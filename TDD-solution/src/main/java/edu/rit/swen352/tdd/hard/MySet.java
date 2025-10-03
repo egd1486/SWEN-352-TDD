@@ -21,17 +21,17 @@ package edu.rit.swen352.tdd.hard;
  */
 public class MySet<T> {
 
-    private Object[][] buckets;
+    private Object[] buckets;
     private int size;
     private int capacity;
 
     @SafeVarargs
-    public MySet(T... varags) {
-        buckets = new Object[16][2];
+    public MySet(T... varargs) {
+        buckets = new Object[16];
         capacity = 16;
 
-        for (int i = 0; i < varags.length; i++) {
-            buckets[i][0] = varags[i];
+        for (int i = 0; i < varargs.length; i++) {
+            buckets[i] = varargs[i];
             size++;
         }
     }
@@ -42,8 +42,7 @@ public class MySet<T> {
 
     public boolean contains(T value) {
         for(int i = 0; i < size; i++) {
-            if (buckets[i][0] == value ||
-                buckets[i][1] == value) {
+            if (buckets[i] == value) {
                     return true;
                 }
         }
@@ -54,7 +53,7 @@ public class MySet<T> {
         if (this.contains(value)) {
             return false;
         }
-        buckets[size][0] = value;
+        buckets[size] = value;
         size++;
         return true;
     }
