@@ -27,4 +27,14 @@ class MyListTest {
         CuT = new MyList<Object>(1, "2", 3.4); 
         assertEquals(CuT.isEmpty(), false, "List is empty"); 
     }
+
+    @Test 
+    @DisplayName("Test how many elements are in the list")
+    void sizeTest() {
+        CuT = new MyList<Object>(1, "2", 3.4); 
+        assertEquals(CuT.size(), 3, "List size is incorrect");
+
+        CuT = new MyList<Object>(); 
+        assertEquals(CuT.size(), 0, "List size is incorrect");
+    }
 }

@@ -31,5 +31,10 @@ public class MyList<T> {
         }
         return true;
     }
+
+    public int size() {
+        assert false: "Not yet implemented";
+        return -1;
+    }
 }
 
