@@ -37,8 +37,12 @@ public class MyList<T> {
     }
 
     public T get(int idx) {
-        assert false: "Not yet implemented";
-        return null;
+        if(idx > lst.length-1) {
+            throw new java.util.NoSuchElementException("Out of bounds");
+        }
+        else {
+            return lst[idx];
+        }
     }
 }
 
