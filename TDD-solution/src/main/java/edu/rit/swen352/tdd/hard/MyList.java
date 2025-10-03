@@ -26,8 +26,10 @@ public class MyList<T> {
     }
 
     public boolean isEmpty() {
-        assert false: "Not yet implemented";
-        return false;
+        if (lst.length > 0) {
+            return false;
+        }
+        return true;
     }
 }
 
