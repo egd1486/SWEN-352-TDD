@@ -1,4 +1,9 @@
 package edu.rit.swen352.tdd.hard;
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Consumer;
+
 
 /**
  * MyList is a flexible-sized sequence of elements with no gaps.
@@ -19,4 +24,52 @@ package edu.rit.swen352.tdd.hard;
  * @param <T> the type of elements in the list.
  */
 public class MyList<T> {
+    private List<T> lst;
+
+    public MyList(T... lst) { //varargs = ... (0 or more)
+        this.lst = new ArrayList<>(Arrays.asList(lst));
+    }
+
+    public boolean isEmpty() {
+        if (lst.size() > 0) {
+            return false;
+        }
+        return true;
+    }
+
+    public int size() {
+       return lst.size();
+    }
+
+    public T get(int idx) {
+        if(idx > lst.size()-1) {
+            throw new java.util.NoSuchElementException("Out of bounds");
+        }
+        else {
+            return lst.get(idx);
+        }
+    }
+
+    public void add(T ele) {
+        if (ele == null) {
+            throw new NullPointerException("Cannot add null to list");
+        }
+        else {
+            lst.add(ele);
+        }
+    }
+
+    public void remove(int idx) {
+        if(idx > lst.size()-1) {
+            throw new java.util.NoSuchElementException("Out of bounds");
+        }
+        else {
+            lst.remove(idx);
+        }
+    }
+
+    public void forEach(Consumer consumer) {
+        lst.stream().forEach(consumer);
+    }
 }
+
