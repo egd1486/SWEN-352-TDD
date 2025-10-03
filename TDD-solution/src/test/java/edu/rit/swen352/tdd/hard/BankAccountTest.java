@@ -89,4 +89,16 @@ class BankAccountTest {
 
         assertTrue(result);
     }
+
+    @Test
+    @DisplayName("Tests that subtracting money returns the correct amount")
+    public void subtractMoneyTest(){
+        RuT = new Money(5, 15);
+        Money testMoney = new Money(3, 35);
+
+        Money finalMoney = RuT.subtract(testMoney);
+
+        assertEquals(1, finalMoney.dollars());
+        assertEquals(80, finalMoney.cents());
+    }
 }

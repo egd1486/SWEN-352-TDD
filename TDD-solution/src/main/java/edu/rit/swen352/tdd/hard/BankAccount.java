@@ -32,6 +32,10 @@ record Money(int dollars, int cents) {
     public boolean isZero() {
         return dollars == 0 && cents == 0;
     }
+
+    public Money subtract(Money Other) {
+        return new Money(0, 0);
+    }
 }
 
 /**
