@@ -44,5 +44,9 @@ public class MyList<T> {
             return lst[idx];
         }
     }
+
+    public void add(Object ele) {
+        assert false: "Not yet implemented";
+    }
 }
 
