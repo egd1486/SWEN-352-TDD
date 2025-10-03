@@ -5,6 +5,10 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+import java.util.function.Consumer;
+import java.util.List;
+
 /**
  * Test suite for the {@link MyList} component.
  */
@@ -74,5 +78,19 @@ class MyListTest {
         assertThrows(java.util.NoSuchElementException.class, () -> {
             CuT.remove(5);
         });
+    }
+
+    @Test 
+    @DisplayName("Test looping through list")
+    void forEachTest() {
+        CuT = new MyList<Object>(1, "2", 3.4); 
+        List<Object> newLst = new ArrayList<>();
+        Consumer consumer = element -> {
+            newLst.add(element);
+        };
+        CuT.forEach(consumer);
+        assertEquals(newLst.get(0), 1, "Element not added changed");
+        assertEquals(newLst.get(1), "2", "Element not added changed");
+        assertEquals(newLst.get(2), 3.4, "Element not added changed");
     }
 }

@@ -2,6 +2,7 @@ package edu.rit.swen352.tdd.hard;
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 
 
 /**
@@ -65,6 +66,10 @@ public class MyList<T> {
         else {
             lst.remove(idx);
         }
+    }
+
+    public void forEach(Consumer consumer) {
+        assert false : "Not yet implemented";
     }
 }
 
