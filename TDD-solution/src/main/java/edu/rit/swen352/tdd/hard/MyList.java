@@ -59,7 +59,12 @@ public class MyList<T> {
     }
 
     public void remove(int idx) {
-        assert false : "Not yet implemented";
+        if(idx > lst.size()-1) {
+            throw new java.util.NoSuchElementException("Out of bounds");
+        }
+        else {
+            lst.remove(idx);
+        }
     }
 }
 
