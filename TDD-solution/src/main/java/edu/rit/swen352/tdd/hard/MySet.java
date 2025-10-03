@@ -42,9 +42,9 @@ public class MySet<T> {
 
     public boolean contains(T value) {
         for(int i = 0; i < size; i++) {
-            if (buckets[i] == value) {
+            if (buckets[i].equals(value)) {
                     return true;
-                }
+            }
         }
         return false;
     }
