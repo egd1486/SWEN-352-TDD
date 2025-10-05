@@ -136,4 +136,27 @@ class MySetTest {
 
         assertEquals(testSet.size(), newSet.size());
     }
+
+    @Test
+    @DisplayName("Map function can return a set of a smaller size")
+    public void map_3() {
+        Function<Integer,Boolean> x = new Function<Integer,Boolean>() {
+            @Override
+            public Boolean apply(Integer t) {
+                return true;
+            }
+        };
+
+        MySet<Integer> testSet = new MySet<>();
+
+        for (int i = 0; i < 5; i++) {
+            testSet.add(i);
+        }
+
+        int expectedSize = 1;
+        MySet<Boolean> newSet = testSet.map(x);
+
+        assertNotEquals(testSet.size(), newSet.size());
+        assertEquals(expectedSize, newSet.size());
+    }
 }
