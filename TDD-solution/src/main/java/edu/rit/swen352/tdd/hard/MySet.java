@@ -124,6 +124,11 @@ public class MySet<T> {
         add_helper(node.value, newBuckets);
     }
 
+    public boolean remove(T value) {
+        assert false;
+        return false;
+    }
+
     public <E> MySet<E> map(Function<T, E> function) {
         MySet<E> newSet = new MySet<E>();
         for (Node<T> node : buckets) {

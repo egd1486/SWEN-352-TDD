@@ -159,4 +159,11 @@ class MySetTest {
         assertNotEquals(testSet.size(), newSet.size());
         assertEquals(expectedSize, newSet.size());
     }
+
+    @Test
+    @DisplayName("Remove returns false when not removing an element")
+    public void remove_1() {
+        MySet<Integer> testSet = new MySet<>();
+        assertFalse(testSet.remove(0));
+    }
 }
