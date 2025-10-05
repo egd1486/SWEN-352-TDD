@@ -116,4 +116,24 @@ class MySetTest {
         assertNotEquals(testSet, newSet);
         assertEquals(expectedSize, newSet.size());
     }
+
+    @Test
+    @DisplayName("Map function is one-to-one and returns same size set")
+    public void map_2() {
+        Function<Integer,Integer> x = new Function<Integer,Integer>() {
+            public Integer apply(Integer t) {
+                return t + 1;
+            };
+        };
+
+        MySet<Integer> testSet = new MySet<>();
+
+        for (int i = 0; i < 5; i++) {
+            testSet.add(i);
+        }
+
+        MySet<Integer> newSet = testSet.map(x);
+
+        assertEquals(testSet.size(), newSet.size());
+    }
 }
