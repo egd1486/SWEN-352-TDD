@@ -173,4 +173,14 @@ class MySetTest {
         MySet<Integer> testSet = new MySet<>(1);
         assertTrue(testSet.remove(1));
     }
+
+    @Test
+    @DisplayName("Remvoing an element decreases the size by 1")
+    public void remove_3() {
+        int expectedSize = 0;
+        MySet<Integer> testSet = new MySet<>(1);
+        assertTrue(testSet.remove(1));
+
+        assertEquals(expectedSize, testSet.size());
+    }
 }
