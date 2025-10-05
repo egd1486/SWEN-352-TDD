@@ -125,7 +125,6 @@ public class MySet<T> {
     }
 
     public boolean remove(T value) {
-        assert false;
         return false;
     }
 
