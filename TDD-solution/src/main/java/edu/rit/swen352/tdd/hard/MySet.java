@@ -125,8 +125,7 @@ public class MySet<T> {
     }
 
     public <E> MySet<E> map(Function<T, E> function) {
-        assert false;
-        return null;
+        return new MySet<E>();
     }
 
     /*
