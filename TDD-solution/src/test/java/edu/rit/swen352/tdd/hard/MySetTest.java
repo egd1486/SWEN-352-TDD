@@ -7,6 +7,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.function.Function;
 import java.util.stream.Stream;
 
 /**
@@ -96,5 +97,23 @@ class MySetTest {
         MySet<Integer> testSet = new MySet<>(contains);
         assertTrue(testSet.add(addedValue));
         assertEquals(expectedSize, testSet.size());
+    }
+
+    @Test
+    @DisplayName("Map returns new empty set when mapping an empty set")
+    public void map_1() {
+        Function<Integer,String> x = new Function<Integer,String>() {
+            @Override
+            public String apply(Integer t) {
+                return t.toString();
+            }
+        };
+
+        int expectedSize = 0;
+        MySet<Integer> testSet = new MySet<>();
+        MySet<String> newSet = testSet.map(x);
+
+        assertNotEquals(testSet, newSet);
+        assertEquals(expectedSize, newSet.size());
     }
 }
