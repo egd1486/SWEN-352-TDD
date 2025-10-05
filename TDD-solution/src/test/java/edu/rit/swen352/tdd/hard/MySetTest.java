@@ -118,7 +118,7 @@ class MySetTest {
     }
 
     @Test
-    @DisplayName("Map function is one-to-one and returns same size set")
+    @DisplayName("Map function is one-to-one, applying to all individual items")
     public void map_2() {
         Function<Integer,Integer> x = new Function<Integer,Integer>() {
             public Integer apply(Integer t) {
