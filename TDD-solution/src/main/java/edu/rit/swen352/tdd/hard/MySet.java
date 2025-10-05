@@ -1,7 +1,5 @@
 package edu.rit.swen352.tdd.hard;
 
-import java.lang.reflect.Array;
-
 /**
  * MySet is a flexible-sized, unordered collection of elements.
  * The {@link Object#equals(Object)} method is used to determine if two values are equal.
@@ -26,6 +24,7 @@ public class MySet<T> {
     private Node<T>[] buckets;
     private int size;
     private int capacity;
+    private int arraySize;
 
     @SafeVarargs
     @SuppressWarnings("unchecked")
@@ -41,12 +40,13 @@ public class MySet<T> {
          * but this shows more intent that we are storing some
          * Node with a type, rather than just a raw typed Node
          */
-        buckets = (Node<T>[]) new Node<?>[16];
         capacity = 16;
+        buckets = (Node<T>[]) new Node<?>[capacity];
+        size = 0;
+        arraySize = 0;
 
-        for (int i = 0; i < varargs.length; i++) {
-            buckets[i] = new Node<T>(varargs[i]);
-            size++;
+        for (T t : varargs) {
+            add(t);
         }
     }
 
@@ -67,12 +67,59 @@ public class MySet<T> {
     }
 
     public boolean add(T value) {
-        if (this.contains(value)) {
+        if (arraySize  == capacity) {
+            this.resize();
+        }
+
+        return add_helper(value, buckets);
+    }
+
+    private boolean add_helper(T value, Node<T>[] array) {
+        if (value == null) {
             return false;
         }
-        buckets[size] = new Node<T>(value);
-        size++;
-        return true;
+
+        if(array[value.hashCode() % capacity] == null) {
+            array[value.hashCode() % capacity] = new Node<T>(value);
+            size++;
+            arraySize++;
+            return true;
+        }
+
+        Node<T> currentNode = array[value.hashCode() % capacity];
+        while(true) {
+            if (currentNode.value.equals(value)) {
+                return false;
+            }
+
+            if (currentNode.next == null) {
+                currentNode.next = new Node<T>(value);
+                size++;
+                return true;
+            }
+
+            currentNode = currentNode.next;
+        }
+    }
+
+    @SuppressWarnings("unchecked")
+    private void resize() {
+        Node<T>[] newBuckets = (Node<T>[]) new Node<?>[capacity * 2];
+        capacity *= 2;
+        size = 0;
+        arraySize = 0;
+        for (int i = 0; i < buckets.length; i++) {
+            reAddNodesToNewBucket(buckets[i], newBuckets);
+        }
+        this.buckets = newBuckets;
+    }
+
+    private void reAddNodesToNewBucket(Node<T> node, Node<T>[] newBuckets) {
+        if (node == null) {
+            return;
+        }
+        reAddNodesToNewBucket(node.next, newBuckets);
+        add_helper(node.value, newBuckets);
     }
 
     /*
