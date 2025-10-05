@@ -166,4 +166,11 @@ class MySetTest {
         MySet<Integer> testSet = new MySet<>();
         assertFalse(testSet.remove(0));
     }
+
+    @Test
+    @DisplayName("Removing an element that exists returns true")
+    public void remove_2() {
+        MySet<Integer> testSet = new MySet<>(1);
+        assertTrue(testSet.remove(1));
+    }
 }
