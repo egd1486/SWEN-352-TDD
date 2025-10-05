@@ -125,7 +125,7 @@ public class MySet<T> {
     }
 
     public boolean remove(T value) {
-        return false;
+        return this.contains(value);
     }
 
     public <E> MySet<E> map(Function<T, E> function) {
