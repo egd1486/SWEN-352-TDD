@@ -133,6 +133,12 @@ public class MySet<T> {
             }
 
             newSet.add(function.apply(node.value));
+
+            // get other values that share the same array space
+            while(node.next != null) {
+                node = node.next;
+                newSet.add(function.apply(node.value));
+            }
         }
 
         return newSet;
