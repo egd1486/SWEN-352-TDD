@@ -125,7 +125,17 @@ public class MySet<T> {
     }
 
     public <E> MySet<E> map(Function<T, E> function) {
-        return new MySet<E>();
+        MySet<E> newSet = new MySet<E>();
+        for (Node<T> node : buckets) {
+
+            if(node == null) {
+                continue;
+            }
+
+            newSet.add(function.apply(node.value));
+        }
+
+        return newSet;
     }
 
     /*
