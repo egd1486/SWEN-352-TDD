@@ -125,7 +125,30 @@ public class MySet<T> {
     }
 
     public boolean remove(T value) {
-        return this.contains(value);
+        Node<T> possibleNode = buckets[value.hashCode() % capacity];
+        if (possibleNode == null || value == null) {
+            return false;
+        }
+        if (possibleNode.value.equals(value)) {
+            buckets[value.hashCode() % capacity] = possibleNode.next;
+            size--;
+            return true;
+        }
+        Node<T> previous = possibleNode;
+        Node<T> next = possibleNode.next;
+
+        while(next != null && !next.value.equals(value)) {
+            previous = next;
+            next = next.next;
+        }
+
+        if (next != null && next.value.equals(value)) {
+            previous.next = next.next;
+            size--;
+            return true;
+        }
+
+        return false;
     }
 
     public <E> MySet<E> map(Function<T, E> function) {

@@ -182,5 +182,6 @@ class MySetTest {
         assertTrue(testSet.remove(1));
 
         assertEquals(expectedSize, testSet.size());
+        assertTrue(!testSet.contains(1));
     }
 }
